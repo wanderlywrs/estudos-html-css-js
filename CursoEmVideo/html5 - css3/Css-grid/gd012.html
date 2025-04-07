@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Define a codificação de caracteres como UTF-8 para garantir que todos os caracteres especiais sejam exibidos corretamente -->
+    <meta charset="UTF-8" />
+    
+    <!-- Define a meta tag viewport para garantir que o layout seja responsivo em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Título da página, é importante ter um título claro e informativo -->
+    <title>Css Grid / Nomes de linhas / Parte 2</title>
+
+    <style>
+        /* Resetando a margem padrão do body para evitar espaço extra ao redor do conteúdo */
+        body {
+            margin: 0;
+        }
+
+        /* O wrapper será o container principal que utiliza grid */
+        .wrapper {
+            /* Definindo um grid com 7 colunas. Usando 'fr' para distribuição flexível */
+            display: grid;
+            
+            /* Definindo as colunas com nomes de linhas personalizados para maior legibilidade */
+            grid-template-columns:[site-start] 1fr [content-start] repeat(5,1fr) [site-end];
+            
+            /* Definindo as linhas também com nomes de linhas personalizados */
+            grid-template-rows: [site-top] 200px [content-top] 200px [content-bottom] 200px [site-bottom];
+            
+            /* Definindo a altura automática das linhas, com 200px como padrão */
+            grid-auto-rows: 200px;
+            
+            /* Definindo o espaçamento entre os itens do grid */
+            gap: 0.5rem;    
+        }
+
+        /* O header ocupa todas as colunas, de 'site-start' até 'site-end' */
+        header {
+            grid-column: site-start/site-end;
+        }
+
+        /* O main ocupa a coluna definida como 'content' */
+        main {
+            /* O código comentado estava tentando especificar o início da coluna, mas como o nome da linha é 'content', 
+            podemos usar diretamente 'content' aqui */
+            grid-column: content;
+        }
+
+        /* O aside ocupa a primeira coluna até o começo de 'content-start' 
+        e se estende por todo o espaço entre as linhas 'content-top' e 'content-bottom' */
+        aside {
+            grid-column: site-start / content-start; /* Define o início da coluna até 'content-start' */
+            grid-row: content-top/content-bottom; /* Define as linhas de onde o aside vai começar e terminar */
+        }
+
+        /* O footer ocupa a área definida como 'site', mas o valor usado aqui não está bem definido.
+        Pode ser necessário especificar uma área mais precisa ou usar uma forma mais clara de garantir o layout correto */
+        footer {
+            grid-column: site; /* Isso não está claro, deveria ser mais específico */
+        }
+
+        /* Estilos gerais para todos os elementos dentro do .wrapper */
+        .wrapper * {
+            background-color: royalblue; /* A cor de fundo é azul royal para todos os elementos dentro do wrapper */
+            padding: 1rem; /* Um espaçamento de 1rem em torno do conteúdo de todos os elementos */
+        }
+
+        /* Seleciona todos os elementos filhos dentro do .wrapper que são de número par e muda o fundo para 'skyblue' */
+        .wrapper *:nth-child(even) {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- O wrapper contém o layout geral da página -->
+    <div class="wrapper">
+        <!-- O cabeçalho ocupa todas as colunas no grid -->
+        <header>header</header>
+        
+        <!-- O conteúdo principal ocupa a área definida como 'content' -->
+        <main>main</main>
+        
+        <!-- O aside ocupa a área lateral esquerda e ocupa as linhas entre 'content-top' e 'content-bottom' -->
+        <aside>aside</aside>
+        
+        <!-- O rodapé ocupa a área do 'site', mas essa área não está bem definida no código atual -->
+        <footer>footer</footer>
+    </div>
+</body>
+
+</html>

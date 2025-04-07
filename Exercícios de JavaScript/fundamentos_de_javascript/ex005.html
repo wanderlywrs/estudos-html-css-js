@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operadores Condicionais</title>
+</head>
+
+<body>
+    <script>
+        function verificarNumero(num) {
+            if (num > 0) {
+                console.log("O número é positivo ");
+            } else if (num < 0) {
+                console.log("O número é negativo ");
+            } else {
+                console.log("O númro é zero")
+            }
+        }
+        verificarNumero(10);
+        verificarNumero(-5);
+        verificarNumero(0);
+
+        function calcularMedia(nota1, nota2) {
+            let media = (nota1 + nota2) / 2;
+            if (media >= 7) {
+                console.log(`Aluno aprovado com a média de: ${media}`);
+            } else {
+                console.log(`Aluno reprovado com a média de: ${media}`);
+            }
+        }
+        calcularMedia(8, 6);
+        calcularMedia(5, 6);
+
+        function podeVotar(idade) {
+            if (idade >= 18 && idade < 70) {
+                console.log(`Voto Obrigatório.`);
+            } else if ((idade >= 16 && idade < 18) || idade >= 70) {
+                console.log(`Voto facultativo.`)
+            } else {
+                console.log(`Não vota`)
+            }
+        }
+        podeVotar(15);
+        podeVotar(16);
+        podeVotar(18);
+        podeVotar(70);
+        podeVotar(22);
+
+        function situacaoEstudante(mediaFinal) {
+            if (mediaFinal >= 7) {
+                console.log("Aprovado.");
+            } else if (mediaFinal >= 5 && mediaFinal < 7) {
+                console.log("Em recuperação.");
+            } else {
+                console.log("Reprovado")
+            }
+        }
+        situacaoEstudante(7);
+        situacaoEstudante(6);
+        situacaoEstudante(4);
+
+        function calcularIMC(peso, altura) {
+            let imc = peso / (altura * altura);
+            if (imc < 18.5) {
+                console.log("Abaixo do peso.");
+            } else if (imc >= 18.5 && imc < 25) {
+                console.log("Peso normal.");
+            } else if (imc >= 25 && imc < 30) {
+                console.log("Sobrepeso.");
+            } else {
+                console.log("Obesidade.")
+            }
+        }
+        calcularIMC(60, 1.7);
+        calcularIMC(87, 1.7);
+        calcularIMC(90, 1.7);
+
+        function verificarBissexto(ano) {
+            if ((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)) {
+                console.log(`${ano} é um ano bissexto`)
+            } else {
+                console.log(`${ano} não é um ano bissexto`)
+            }
+        }
+        verificarBissexto(2000);
+        verificarBissexto(2001);
+        verificarBissexto(2100);
+
+        function verificarPalindromo(palavra) {
+            let palavraInvertida = palavra.split('').reverse().join('');
+            if (palavra == palavraInvertida) {
+                console.log(`${palavra} é um palíndromo.`)
+            } else {
+                console.log(`${palavra} não é um palíndromo`)
+            }
+        }
+
+        verificarPalindromo("arara");
+        verificarPalindromo("gato");
+
+        function maiorNumero(num1, num2, num3) {
+            if (num1 > num2 && num1 > num3) {
+                console.log(`${num1} é o maior número`);
+            } else if (num2 > num1 && num2 > num3) {
+                console.log(`${num2} é o maio número`)
+            } else {
+                console.log(`${num3} é o maior número`)
+            }
+        }
+
+        maiorNumero(1, 2, 3);
+        maiorNumero(5, 3, 4);
+        maiorNumero(7, 8, 7);
+
+        function parOuImpar(numero) {
+            if (numero % 2 == 0) {
+                console.log(`${numero} é par`);
+            } else {
+                console.log(`${numero} é impar`)
+            }
+        }
+
+        parOuImpar(2);
+        parOuImpar(3);
+
+        function podeDirigir(idadeDirigir) {
+            if (idadeDirigir >= 18) {
+                console.log(`Pode dirigir. `)
+            } else {
+                console.log(`Não pode dirigir. `)
+            }
+        }
+
+        podeDirigir(18);
+        podeDirigir(17);
+
+        function dentroDoIntervalo(numeroTelefone, limiteInferior, limiteSuperior) {
+            if (numeroTelefone >= limiteInferior && numeroTelefone <= limiteSuperior) {
+                console.log(`${numeroTelefone} está dentro do intervalo.`)
+            } else {
+                console.log(`${numeroTelefone} está fora do intervalo.`)
+            }
+        }
+
+        dentroDoIntervalo(9, 1, 10);
+        dentroDoIntervalo(11, 1, 10);
+
+        function classificarAluno(notaAluno) {
+            if (notaAluno >= 90) {
+                console.log(`A`);
+            } else if (notaAluno >= 80) {
+                console.log(`B`);
+            } else if (notaAluno >= 70) {
+                console.log(`C`);
+            } else if (notaAluno >= 60) {
+                console.log(`D`);
+            } else if (notaAluno >= 50) {
+                console.log(`F+`)
+            } else if (notaAluno <= 49) {
+                console.log(`F-`)
+            }
+        }
+
+        classificarAluno(92);
+        classificarAluno(81);
+        classificarAluno(76);
+        classificarAluno(66);
+        classificarAluno(51);
+        classificarAluno(47);
+
+        function determinarEstacao(mes) {
+            if (mes < 3 || mes === 12) {
+                console.log(`Verão`);
+            } else if (mes < 6) {
+                console.log(`Outono`)
+            } else if (mes < 9) {
+                console.log(`Inverno`);
+            } else {
+                console.log(`Primavera`)
+            }
+        }
+
+        determinarEstacao(12);
+        determinarEstacao(4);
+        determinarEstacao(7);
+        determinarEstacao(10);
+    </script>
+</body>
+
+</html>

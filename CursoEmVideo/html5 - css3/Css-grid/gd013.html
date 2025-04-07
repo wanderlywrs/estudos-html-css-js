@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Grid na Prática - Layout 1</title>
+
+    <style>
+        /* Removendo margens padrão do body */
+        body {
+            margin: 0px;
+        }
+        
+        /* Definição do layout principal usando Grid */
+        .l-wrapper {
+            display: grid; /* Ativa o Grid Layout */
+            gap: .5rem; /* Espaçamento entre os elementos */
+            grid-template-columns: 1fr; /* Uma coluna padrão */
+            grid-template-areas:
+                "header"
+                "main"
+                "aside-main"
+                "sidebar"
+                "aside-sec"
+                "footer"
+            ; /* Define a organização dos elementos na tela */
+            height: 100vh; /* Define a altura total da tela */
+            margin: 0;
+        }
+
+        /* Estilização dos elementos individuais do layout */
+        .l-header {
+            background-color: skyblue;
+            grid-area: header; /* Define sua área no Grid */
+        }
+
+        .l-main {
+            background-color: coral;
+            grid-area: main;
+        }
+
+        .l-sidebar {
+            background-color: royalblue;
+            grid-area: sidebar;
+        }
+
+        .l-aside-main {
+            background-color: brown;
+            grid-area: aside-main;
+        }
+
+        .l-aside-sec {
+            background-color: brown;
+            grid-area: aside-sec;
+        }
+
+        footer {
+            background-color: skyblue;
+            grid-area: footer;
+        }
+
+        /* Ajustes para telas maiores (largura mínima de 768px) */
+        @media (min-width: 768px) {
+            .l-wrapper {
+                grid-template-columns: 1fr repeat(4, minmax(auto, 200px)) 1fr; /* Cria 6 colunas, 4 centrais responsivas */
+                grid-template-rows: .5fr 2fr .5fr .5fr; /* Define alturas relativas para cada linha */
+                grid-template-areas:
+                    " header header header header header header "
+                    " . main main main sidebar . "
+                    " . aside-main aside-main aside-sec aside-sec . "
+                    " footer footer footer footer footer footer "
+                ; /* Novo layout para telas maiores */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="l-wrapper">
+        <header class="l-header"></header> <!-- Cabeçalho -->
+        <main class="l-main"></main> <!-- Conteúdo principal -->
+        <aside class="l-sidebar"></aside> <!-- Barra lateral -->
+        <aside class="l-aside-main"></aside> <!-- Primeira seção adicional -->
+        <aside class="l-aside-sec"></aside> <!-- Segunda seção adicional -->
+        <footer class="l-footer"></footer> <!-- Rodapé -->
+    </div>
+</body>
+
+</html>

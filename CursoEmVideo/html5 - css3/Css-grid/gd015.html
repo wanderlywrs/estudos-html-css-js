@@ -1,0 +1,104 @@
+<!-- Documento HTML com estrutura CSS Grid para um artigo responsivo -->
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8"> <!-- Define a codificação do documento para UTF-8 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a escala para dispositivos móveis -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Garante compatibilidade com o Internet Explorer -->
+        <title>Curso "CSS Grid": Prática 3</title>
+        <style>
+            /* Estilos das seções do artigo, cada uma recebe um nome de área para o Grid */
+            .l-article__title {
+                background-color: darkturquoise;
+                grid-area: title;
+            }
+
+            .l-article__meta {
+                background-color: lightgray;
+                grid-area: meta;
+            }
+
+            .l-article__copy1 {
+                background-color: royalblue;
+                grid-area: copy1;
+            }
+
+            .l-article__copy2 {
+                background-color: rosybrown;
+                grid-area: copy2;
+            }
+
+            .l-article__media {
+                background-color: khaki;
+                grid-area: media;
+                margin: 0;
+            }
+
+            .l-article__aside {
+                background-color: coral;
+                grid-area: aside;
+            }
+
+            /* Definição do layout do Grid */
+            .l-article {
+                display: grid;
+                grid-gap: .5rem; /* Espaçamento entre os elementos */
+                grid-template-columns: repeat(6, 1fr); /* 6 colunas de tamanho igual */
+                grid-template-areas: /* Definição das áreas do grid */
+                    "title  title   title   title   title   title"
+                    "meta   meta    meta    meta    meta    meta "
+                    "copy1  copy1   copy1   copy1   copy1   copy1"
+                    "copy2  copy2   copy2   copy2   copy2   copy2"
+                    "media  media   media   media   media   media"
+                    "aside  aside   aside   aside   aside   aside";
+                margin: 0 auto; /* Centraliza o conteúdo na tela */
+                max-width: 1024px; /* Define uma largura máxima para evitar que fique muito grande em telas grandes */
+            }
+
+            /* Estilos para telas médias (mínimo 480px) */
+            @media screen and (min-width: 30em) {
+                .l-article {
+                    grid-template-areas:
+                        "meta   meta    title   title   title   title"
+                        "copy1  copy1   copy1   copy1   copy1   copy1"
+                        "copy2  copy2   copy2   copy2   copy2   copy2"
+                        "media  media   media   media   media   aside";
+                }
+            }
+
+            /* Estilos para telas maiores (mínimo 960px) */
+            @media screen and (min-width: 60em) {
+                .l-article {
+                    grid-template-areas:
+                        "meta   title   title   title   copy2   copy2"
+                        "copy1  copy1   copy1   copy1   copy2   copy2"
+                        "copy1  copy1   copy1   copy1   copy2   copy2"
+                        "media  media   media   media   media   media"
+                        "aside  aside   .       .       .       .    ";
+                }
+            }
+
+            /* Define altura mínima e espaçamento interno para os elementos do grid */
+            .l-article > * {
+                min-height: 100px;
+                padding: 1rem;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <!-- Estrutura principal do artigo -->
+        <article class="l-article">
+            <header class="l-article__title"></header> <!-- Cabeçalho do artigo -->
+            
+            <aside class="l-article__meta"></aside> <!-- Metadados do artigo, pode conter data e autor -->
+            
+            <section class="l-article__copy1"></section> <!-- Primeira seção de conteúdo -->
+            
+            <section class="l-article__copy2"></section> <!-- Segunda seção de conteúdo -->
+            
+            <figure class="l-article__media"></figure> <!-- Mídia do artigo, pode conter uma imagem ou vídeo -->
+            
+            <aside class="l-article__aside"></aside> <!-- Informação adicional do artigo -->
+        </article>
+    </body>
+</html>

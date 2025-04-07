@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Define a codificação de caracteres como UTF-8 para garantir que todos os caracteres especiais sejam exibidos corretamente -->
+    <meta charset="UTF-8" />
+    
+    <!-- Define a meta tag viewport para garantir que o layout seja responsivo em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Título da página, escolha um título claro e informativo -->
+    <title>Css Grid / Nomes de linhas</title>
+
+    <style>
+        /* Resetando a margem padrão do body para evitar espaços extras ao redor do conteúdo */
+        body {
+            margin: 0;
+        }
+
+        /* A classe wrapper define o container principal com grid */
+        .wrapper {
+            /* Define que o container será um grid */
+            display: grid;
+
+            /* Define 7 colunas com 5 colunas de largura flexível (1fr), e espaços definidos para 'site-start' e 'site-end' */
+            grid-template-columns:[site-start] repeat(5, 1fr) [site-end];
+
+            /* Define o comportamento das linhas com altura fixa de 200px para cada linha */
+            grid-auto-rows: 200px;
+
+            /* Define o espaçamento entre as células do grid */
+            gap: 0.5rem;
+        }
+
+        /* O header ocupa toda a largura do grid, desde 'site-start' até 'site-end' */
+        header {
+            grid-column: site-start / site-end;
+        }
+
+        /* O footer ocupa a primeira coluna no grid, mas a definição 'grid-column: site' precisa ser melhorada,
+        já que 'site' não está sendo usado corretamente para a definição das colunas */
+        footer {
+            grid-column: site; /* Aqui, 'site' não é uma definição válida. O correto seria algo como 'site-start / site-end' */
+        }
+
+        /* Todos os elementos dentro da classe wrapper terão o fundo azul e padding de 1rem */
+        .wrapper * {
+            background-color: royalblue;
+            padding: 1rem;
+        }
+
+        /* Seleciona todos os elementos filhos dentro do wrapper que são de número par e altera o fundo para 'skyblue' */
+        .wrapper *:nth-child(even) {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- O wrapper contém o layout geral da página -->
+    <div class="wrapper">
+        <!-- O cabeçalho ocupa todas as colunas no grid -->
+        <header>header</header>
+        
+        <!-- O conteúdo principal pode ocupar uma coluna ou mais, mas não foi definido neste exemplo -->
+        <main>main</main>
+        
+        <!-- O aside (área lateral) pode ocupar outras colunas ou áreas específicas, mas não foi definido explicitamente aqui -->
+        <aside>aside</aside>
+        
+        <!-- O rodapé ocupa a área definida anteriormente, mas precisa de um ajuste na coluna -->
+        <footer>footer</footer>
+    </div>
+</body>
+
+</html>

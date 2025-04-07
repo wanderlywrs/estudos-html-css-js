@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converção de wons em reais</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <img src="https://i.postimg.cc/GpCxYmvc/title.png" alt="Logo" class="logo">
+
+    <div class="container">
+        <div class="content">
+            <h2>Quem ganha, ganha em Wons!</h2>
+            <p> Que tal converter esse valor?</p>
+            <button onclick="conversor()">Bora converter!</button>
+        </div>
+    </div>
+    <footer>Alura - Imersão DEV - 2025</footer>
+    <script>
+        function conversor() {
+
+            let wons = prompt("Digite o valor em Wons (KRW):");
+            wons = parseFloat(wons);
+
+            if (isNaN(wons) || wons <= 0) {
+                alert("Por favor, insira um número válido!");
+            } else {
+                const taxaDeCambio = 0.004; // 1 KRW ≈ 0.004 BRL (exemplo)
+
+                let reais = wons * taxaDeCambio;
+
+                let reaisFormatado = reais.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+                let wonsFormatado = wons.toLocaleString("ko-KR", { style: "currency", currency: "KRW" });
+
+                alert(`${wonsFormatado} equivale a ${reaisFormatado}`);
+            }
+        }
+    </script>
+</body>
+
+</html>

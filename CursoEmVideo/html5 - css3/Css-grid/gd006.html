@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Css Grid / Ocupando espaço com Css Grid / Posicionamento</title>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(3, minmax(100px, auto));
+            gap: 1rem;
+        }
+
+        .wrapper>div:nth-child(1) {
+            /* grid-column-start: 1;
+            grid-column-end:3; */
+            grid-column: 1/-1;
+            height: 200px;
+        }
+
+        .wrapper>div:nth-child(2) {
+            /* grid-column-start: 1;
+            grid-column-end:3; */
+            grid-column: 1;
+        }
+        .wrapper>div:nth-child(3) {
+            /* grid-column-start: 1;
+            grid-column-end:3; */
+            grid-column: 2/5;
+        }
+        .wrapper>div:nth-child(5) {
+            /* grid-column-start: 1;
+            grid-column-end:3; */
+            grid-column: 1/-1;
+        }
+
+        .wrapper div {
+            background-color: royalblue;
+            padding: 1rem;
+        }
+
+        .wrapper div:nth-child(even) {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div>l</div>
+        <div>2</div>
+        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A ab dolores tempora, laboriosam consequatur explicabo quo, ducimus nisi perspiciatis perferendis architecto, facilis alias totam recusandae nostrum eaque sit doloribus praesentium? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem dignissimos enim tempora voluptatibus omnis dolorum delectus nemo, provident doloribus rerum iure pariatur nobis. Nobis facilis consectetur aut praesentium magni? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta sit sapiente dolores eligendi. Voluptas nulla corporis sint earum temporibus aperiam accusamus, at sapiente quis velit sequi perferendis vitae maxime aliquam?</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+</body>
+
+</html>

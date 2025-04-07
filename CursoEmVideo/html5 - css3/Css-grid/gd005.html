@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Grid / Alinhamento de Conteúdo</title>
+
+    <style>
+        /* Resetando a margem do body para evitar espaçamentos indesejados */
+        body{
+            margin: 0;
+        }
+
+        /* Definição do container grid */
+        .wrapper{
+            display: grid; /* Ativando o CSS Grid */
+            grid-template-columns: repeat(3, 1fr); /* Criando 3 colunas de tamanhos iguais */
+            grid-auto-rows: 200px; /* Definindo altura automática das linhas */
+
+            /* Propriedades de alinhamento dentro das células */
+            /* align-items controla o alinhamento vertical dos itens */
+            /* justify-items controla o alinhamento horizontal dos itens */
+            /* align-self e justify-self ajustam itens individuais */
+            /* Exemplos comentados abaixo */
+
+            /* align-items: center;
+            align-items: start;
+            align-items: end;
+            align-items: stretch;  Valor padrão */
+
+            /* justify-items: start;
+            justify-items: center;
+            justify-items: end; */
+            
+            /*align-items: center;  Alinhando os itens verticalmente no centro */
+            /*justify-items: start;  Alinhando os itens horizontalmente no início */
+        }
+
+        /* Estilização dos itens do grid */
+        .wrapper div{
+            background-color: royalblue; /* Cor de fundo padrão dos itens */
+            padding: 1rem; /* Espaçamento interno */
+        }
+
+        /* Modificando o segundo item individualmente */
+        .wrapper div:nth-child(2){
+            /* Alinhamento vertical apenas desse item */
+            /* align-self: flex-start; Alinha no topo */
+            /* align-self: center; Alinha no centro */
+            align-self: end; /* Alinha na parte inferior */
+
+            /* Alinhamento horizontal apenas desse item */
+            /* justify-self: center; Centraliza horizontalmente */
+            /* justify-self: start; Alinha à esquerda */
+            justify-self: end; /* Alinha à direita */
+        }
+
+        /* Alterando a cor dos itens pares para diferenciar visualmente */
+        .wrapper div:nth-child(even){
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Estrutura do Grid com 8 itens -->
+    <div class="wrapper">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+    </div>
+
+</body>
+</html>

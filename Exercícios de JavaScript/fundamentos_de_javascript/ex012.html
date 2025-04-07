@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Literal Lookup</title>
+</head>
+
+<body>
+    <script>
+        const lookup = {
+            valor1: "Resultado 1",
+            valor2: "Resultado 2",
+            valor3: "Resultado 3"
+        };
+
+        let chave = "valor2";
+        console.log(lookup[chave] || "Valor não encontrado");
+        // Saída: "Resultado 2"
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condições JavaScript</title>
+</head>
+<body>
+    <h1>Você é Brasileiro ou Estrangeiro</h1>
+    Digite o nome do seu pais natural: <input type="text" name="txt1" id="txt1">
+    <input type="button" value="Enviar" onclick="enviar()">
+    <div id="nat"></div>
+
+    <script>
+        function enviar(){
+            let txt = document.querySelector('input#txt1')
+            let nat = document.querySelector('div#nat')
+            let natural = txt.value
+            if(natural == 'Brasil'|| natural == 'brasil'){
+                nat.innerHTML = (`Você é Brasileiro`)
+            }else{
+                nat.innerHTML = (`Você é Estrangeiro`)
+            }
+        }
+    </script>
+</body>
+</html>
