@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Playground de Eventos</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .box { width: 200px; height: 200px; background: #eee; border: 2px dashed #333; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    input { padding: 5px; margin-top: 10px; }
+    .log { background: #000; color: lime; padding: 10px; height: 200px; overflow-y: auto; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <h1>Playground de Eventos 🧪</h1>
+
+  <div class="box" id="box">Passe o mouse, clique ou mova!</div>
+
+  <input type="text" id="campoTexto" placeholder="Digite algo aqui...">
+
+  <form id="formulario">
+    <input type="text" placeholder="Seu nome">
+    <button type="submit">Enviar</button>
+  </form>
+
+  <h2>Console de eventos:</h2>
+  <div class="log" id="log"></div>
+
+  <script>
+    const log = document.getElementById('log')
+
+    function registrar(mensagem) {
+      log.innerHTML += `>> ${mensagem}<br>`
+      log.scrollTop = log.scrollHeight
+    }
+
+    // Eventos de mouse
+    const box = document.getElementById('box')
+    box.addEventListener('click', () => registrar('Box: Clique'))
+    box.addEventListener('dblclick', () => registrar('Box: Clique duplo'))
+    box.addEventListener('mouseover', () => registrar('Box: Mouse passou'))
+    box.addEventListener('mouseout', () => registrar('Box: Mouse saiu'))
+    box.addEventListener('mousemove', () => registrar('Box: Mouse movendo'))
+
+    // Eventos de teclado/input
+    const campoTexto = document.getElementById('campoTexto')
+    campoTexto.addEventListener('focus', () => registrar('Input: Ganhou foco'))
+    campoTexto.addEventListener('blur', () => registrar('Input: Perdeu foco'))
+    campoTexto.addEventListener('input', () => registrar(`Input: Valor atual = ${campoTexto.value}`))
+
+    // Evento de formulário
+    const formulario = document.getElementById('formulario')
+    formulario.addEventListener('submit', (e) => {
+      e.preventDefault()
+      registrar('Formulário enviado!')
+    })
+  </script>
+</body>
+</html>
